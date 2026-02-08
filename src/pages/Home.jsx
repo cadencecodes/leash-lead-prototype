@@ -4,8 +4,12 @@ function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-slate-900 text-white py-24 lg:py-32 xl:py-40 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl lg:max-w-5xl mx-auto text-center">
+      <section
+        className="relative bg-slate-900 text-white py-24 lg:py-32 xl:py-40 px-4 sm:px-6 lg:px-8 bg-cover bg-center min-h-[60vh] lg:min-h-[70vh] flex items-center"
+        style={{ backgroundImage: "url('/images/hero.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-slate-900/60"></div>
+        <div className="relative max-w-4xl lg:max-w-5xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
             Professional Dog Training for Lasting Results
           </h1>

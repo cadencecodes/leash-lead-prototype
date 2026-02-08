@@ -46,8 +46,12 @@ function Training() {
   return (
     <div>
       {/* Header */}
-      <section className="bg-slate-900 text-white py-20 lg:py-28 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl lg:max-w-5xl mx-auto text-center">
+      <section
+        className="relative bg-slate-900 text-white py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-cover bg-top min-h-[50vh] lg:min-h-[60vh] flex items-center"
+        style={{ backgroundImage: "url('/images/training-program.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-slate-900/60"></div>
+        <div className="relative max-w-4xl lg:max-w-5xl mx-auto text-center">
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">Board & Train Programs</h1>
           <p className="text-lg lg:text-xl text-slate-300 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed">
             Immersive training programs that create real, lasting change. Your dog

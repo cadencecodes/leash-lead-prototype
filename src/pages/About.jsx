@@ -19,11 +19,11 @@ function About() {
         <div className="max-w-4xl lg:max-w-6xl mx-auto">
           <div className="md:flex md:gap-16 lg:gap-20 items-start">
             <div className="md:w-1/3 mb-8 md:mb-0">
-              <div className="bg-slate-200 rounded-lg aspect-square flex items-center justify-center shadow-sm">
-                <svg className="w-24 h-24 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              </div>
+              <img
+                src="/images/about.jpg"
+                alt="Professional dog trainer with trained dog"
+                className="w-full rounded-lg object-cover shadow-sm"
+              />
             </div>
             <div className="md:w-2/3">
               <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-6">Meet the Trainer</h2>
