@@ -1,9 +1,13 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Training() {
+  const [activeFilter, setActiveFilter] = useState('All')
+
   const programs = [
     {
       duration: '1 Week',
+      level: 'Puppy',
       title: 'Foundation Program',
       description: 'An intensive introduction to structured training, ideal for dogs who need a reset or owners seeking a strong starting point.',
       goals: [
@@ -17,6 +21,7 @@ function Training() {
     },
     {
       duration: '2 Weeks',
+      level: 'Basic',
       title: 'Core Program',
       description: 'Our most popular program, providing the time needed to build reliable skills and address moderate behavioral challenges.',
       goals: [
@@ -30,6 +35,7 @@ function Training() {
     },
     {
       duration: '3 Weeks',
+      level: 'Advanced',
       title: 'Comprehensive Program',
       description: 'Our most thorough program, designed for dogs with significant behavioral challenges or owners who want the highest level of reliability.',
       goals: [
@@ -42,6 +48,10 @@ function Training() {
       outcomes: 'Dogs return with polished obedience, significant behavioral improvement, and the ability to maintain composure in demanding situations. Owners receive comprehensive handoff training plus follow-up support.',
     },
   ]
+
+  const filteredPrograms = programs.filter(
+    p => activeFilter === 'All' || p.level === activeFilter
+  )
 
   return (
     <div>
@@ -98,9 +108,28 @@ function Training() {
             current behavior.
           </p>
 
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {['All', 'Puppy', 'Basic', 'Advanced'].map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`px-5 py-2 rounded-full text-sm font-semibold uppercase tracking-wide transition-colors duration-200 ${
+                  activeFilter === filter
+                    ? 'bg-slate-800 text-white'
+                    : 'bg-white text-slate-600 border border-slate-300 hover:border-slate-500 hover:text-slate-800'
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+
           <div className="space-y-10">
-            {programs.map((program, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-200">
+            {filteredPrograms.length === 0 && (
+              <p className="text-center text-slate-500 py-10">No programs found for this level.</p>
+            )}
+            {filteredPrograms.map((program) => (
+              <div key={program.title} className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-200">
                 <div className="md:flex">
                   <div className="md:w-1/4 bg-slate-800 text-white p-8 flex flex-col justify-center">
                     <div className="text-sm uppercase tracking-wide text-slate-400 mb-1">
