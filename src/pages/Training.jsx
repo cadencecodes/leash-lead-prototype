@@ -109,7 +109,7 @@ function Training() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {['All', 'Puppy', 'Basic', 'Advanced'].map((filter) => (
+            {['All', ...programs.map(p => p.level)].map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
